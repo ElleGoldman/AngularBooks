@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+<ul>
+    <li
+        *ngFor="let item of allBooks"
+        (click)="handleBookClick(item.title)"
+    >
+        <img src="{{item.image}}" alt="{{item.title}}" height="256" width="180" appHighlightCard>
+        <h5 *ngIf="item.price.value > 20" appHighlight>
+            Too expensive
+        </h5>
+        <h5 *ngIf="item.price.value < 20">
+            {{item.price.currency}}
+            {{item.price.displayValue}}
+        </h5>
+        <h4>{{item.title | uppercase}}</h4>
+    </li>
+</ul>
+
